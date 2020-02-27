@@ -27,6 +27,7 @@ Cauchy_hist_name <- str_c("Cauchy, ", toString(size), " elements")
 hist(Cauchy, breaks=200, prob=TRUE, main=Cauchy_hist_name, xlim=c(-bord_Cauchy, bord_Cauchy))
 curve(dcauchy(x, 0, 1), add=TRUE, col="red")
 
+outsiders <- Cauchy[Cauchy > bord_Cauchy | Cauchy < -bord_Cauchy]
 
 #Laplace
 
