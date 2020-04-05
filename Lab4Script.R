@@ -113,7 +113,7 @@ estimate <- function(rand_func, dens_func, func_name, func_param1, func_param2, 
   interval <- seq(a, b, step)
   x <- rand_func(size, func_param1, func_param2)
   h <- count_h(x)
-  nh <- h * hDivizor
+  nh <- h / hDivizor
   title_name <- str_c(func_name, "n = ", toString(size), ", h_n = h / ", toString(hDivizor))
   y <- density_estimation(interval, x, nh)
   plot(c(interval, NaN), c(y, dens_func(0, func_param1, func_param2)), type = "l", col = "red", xlab = "x", ylab = "f(x)", main = title_name)
@@ -174,7 +174,7 @@ for (i in sizes) {
     interval <- seq(6, 14, 1)
     x <- rpois(i, 10)
     h <- count_h(x)
-    nh <- h * cur_h
+    nh <- h / cur_h
     title_name <- str_c("Poisson", "n = ", toString(i), ", h_n = h / ", toString(cur_h))
     y <- density_estimation(interval, x, nh)
     plot(c(interval, NaN), c(y, dpois(10, 10)), type = "l", col = "red", xlab = "x", ylab = "f(x)", main = title_name)
